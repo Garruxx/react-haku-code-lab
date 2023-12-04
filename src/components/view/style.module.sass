@@ -1,0 +1,80 @@
+.view
+        flex: 1
+        display: flex
+        flex-direction: column
+        background: var( --iframe-light-bg)
+        transition: 5s background
+
+        &[is-night-mode="true"], &[is-code-visible="false"]
+            transition: .35s background
+            background: var( --iframe-dark-bg)
+        iframe 
+            flex: 1
+            border: none
+            box-sizing: border-box
+        .console_output
+            background: var(--console-bg)
+            color: var(--console-color)
+            max-height: 44%
+            overflow: auto
+            transition: .35s max-height
+            width: 100%
+            box-sizing: border-box
+            &::before
+                display: block
+                cursor: pointer
+                cursor: pointer
+                position: sticky
+                padding: 4px 0
+                top: 0
+                background: var(--console-bg)
+                font-weight: 100 
+                color: var(--console-title-bg)
+                z-index: 2
+                                
+            &:not(:empty)
+                padding: 0 4px 4px 4px 
+                &::before 
+                    content: 'Salida de consola ◉'
+
+            &[is-close="true"]
+                max-height: calc(1rem + 8px)
+                overflow: hidden
+                &:not(:empty)::before 
+                    content: 'Salida de consola ◎'
+            
+            details summary code, details.group summary code
+                display: inline
+                cursor: pointer
+                padding-left: 0
+                margin-left: 0
+                border-left: none 
+
+            details.group code, details.group details.group
+                margin: 2px 0
+                padding-left: 22px
+                margin-left: 10px
+            details.group code
+                border-left: solid 6px var(--border-code-group-color)
+                border-radius: 2px 0 0 2px
+
+            code 
+                display: block
+                &.clear
+                    font-style: italic
+                    font-weight: lighter
+                    font-size: 13px
+                    opacity: .5
+        .empty 
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            font-family: 'Mulish'
+            color: var(--text-color)
+            text-align: center
+            cursor: pointer
+            height: 100%
+
+            .container 
+                width: 70%

@@ -1,0 +1,56 @@
+{
+	"name": "react-haku-code-lab",
+	"version": "0.0.2",
+	"type": "module",
+	"description": "Complete frontend code editor for reactjs",
+	"main": "./build/main.js",
+	"module": "./build/main.js",
+	"author": "Jhon Guerrero <garruxx@gmail.com> (Garrux)",
+	"types": "./build/main.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Garruxx/react-code-lab.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Garruxx/Ayncat/issues"
+	},
+	"keywords": [
+		"code editor",
+		"code editor with view",
+		"reactjs user code editor",
+		"react code editor",
+		"react code editor with preview",
+		"react code editor component",
+		"react editor code",
+		"real codemirror with preview"
+	],
+	"license": "MIT",
+	"scripts": {
+		"build": "cpy src/**/*.sass build && cpy src/**/*.svg build && tsc",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+	},
+	"dependencies": {
+		"@codemirror/lang-css": "^6.2.1",
+		"@codemirror/lang-html": "^6.4.7",
+		"@codemirror/lang-javascript": "^6.2.1",
+		"@lezer/highlight": "^1.2.0",
+		"@uiw/codemirror-themes": "^4.21.21",
+		"@uiw/react-codemirror": "^4.21.21",
+		"normalize.css": "^8.0.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"sass": "^1.69.5"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.37",
+		"@typescript-eslint/eslint-plugin": "^6.10.0",
+		"@typescript-eslint/parser": "^6.10.0",
+		"@vitejs/plugin-react-swc": "^3.5.0",
+		"cpy-cli": "^5.0.0",
+		"eslint": "^8.53.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-prettier": "^5.0.1",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-react-refresh": "^0.4.4"
+	}
+}
