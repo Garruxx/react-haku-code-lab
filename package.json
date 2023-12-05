@@ -9,7 +9,7 @@
 	"types": "./build/main.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Garruxx/react-code-lab.git"
+		"url": "git+https://github.com/Garruxx/react-haku-code-lab"
 	},
 	"bugs": {
 		"url": "https://github.com/Garruxx/Ayncat/issues"
