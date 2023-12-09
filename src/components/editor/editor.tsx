@@ -18,27 +18,45 @@ export const Editor = ({
 	return (
 		<div className={styles.editor}>
 			<div className={styles.code}>
-				{Object.keys(codes).map((key) => {
-					console.log(key)
-					const code = key as 'html' | 'css' | 'js'
-
-					return (
-						<CodeMirror
-							key={key}
-							className={`
-								${styles.code_mirror} 
-								${showCode == code ? 'show' : ''}
-							`}
-							extensions={[langs[code]()]}
-							theme={theme}
-							basicSetup={{ tabSize: 4 }}
-							value={codes[code]}
-							readOnly={readonly?.includes(showCode)}
-							height="100%"
-							onChange={handleCodeChange}
-						/>
-					)
-				})}
+				<CodeMirror
+					className={`
+						${styles.code_mirror} 
+						${showCode == 'html' ? 'show' : ''}
+					`}
+					extensions={[langs['html']()]}
+					theme={theme}
+					basicSetup={{ tabSize: 4 }}
+					value={codes['html']}
+					readOnly={readonly?.includes(showCode)}
+					height="100%"
+					onChange={handleCodeChange}
+				/>
+				<CodeMirror
+					className={`
+						${styles.code_mirror} 
+						${showCode == 'css' ? 'show' : ''}
+					`}
+					extensions={[langs['css']()]}
+					theme={theme}
+					basicSetup={{ tabSize: 4 }}
+					value={codes['css']}
+					readOnly={readonly?.includes(showCode)}
+					height="100%"
+					onChange={handleCodeChange}
+				/>
+				<CodeMirror
+					className={`
+						${styles.code_mirror} 
+						${showCode == 'js' ? 'show' : ''}
+					`}
+					extensions={[langs['js']()]}
+					theme={theme}
+					basicSetup={{ tabSize: 4 }}
+					value={codes['js']}
+					readOnly={readonly?.includes(showCode)}
+					height="100%"
+					onChange={handleCodeChange}
+				/>
 			</div>
 		</div>
 	)
