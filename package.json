@@ -1,6 +1,6 @@
 {
 	"name": "react-haku-code-lab",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"type": "module",
 	"description": "Complete frontend code editor for reactjs",
 	"main": "./build/main.js",
