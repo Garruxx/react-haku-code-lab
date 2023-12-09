@@ -18,16 +18,26 @@ export const Editor = ({
 	return (
 		<div className={styles.editor}>
 			<div className={styles.code}>
-				<CodeMirror
-					className={styles.code_mirror}
-					extensions={[langs[showCode]()]}
-					theme={theme}
-					basicSetup={{ tabSize: 4 }}
-					value={codes[showCode]}
-					readOnly={readonly?.includes(showCode)}
-					height="100%"
-					onChange={handleCodeChange}
-				/>
+				{Object.keys(codes).map((key) => {
+					if (!key.match(/html|css|js/g)) return <></>
+					const code = key as 'html' | 'css' | 'js'
+
+					return (
+						<CodeMirror
+							className={`
+								${styles.code_mirror} 
+								${showCode == code ? 'show' : ''}
+							`}
+							extensions={[langs[code]()]}
+							theme={theme}
+							basicSetup={{ tabSize: 4 }}
+							value={codes[code]}
+							readOnly={readonly?.includes(showCode)}
+							height="100%"
+							onChange={handleCodeChange}
+						/>
+					)
+				})}
 			</div>
 		</div>
 	)
