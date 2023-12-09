@@ -20,7 +20,6 @@ export const Editor = ({
 			<div className={styles.code}>
 				{Object.keys(codes).map((key) => {
 					console.log(key)
-					if (!key.match(/^(html|css|js)$/g)) return <></>
 					const code = key as 'html' | 'css' | 'js'
 
 					return (
