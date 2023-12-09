@@ -25,6 +25,7 @@ export const Editor = ({
 
 					return (
 						<CodeMirror
+							key={key}
 							className={`
 								${styles.code_mirror} 
 								${showCode == code ? 'show' : ''}
