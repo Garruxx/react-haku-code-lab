@@ -5,7 +5,7 @@ export const renderIframeHtml = (html: string, css: string, js: string) => {
 	 * removes non-closed html tags such as.
 	 * <element and </element
 	 */
-	const codePurge = (html: string) => {
+	const htmlPurge = (html: string) => {
 		return html
 			.replace(/(<[^>]*?)[^>]</gm, (tag) => {
 				const tagName = tag.match(/\w*/g)?.[1]
@@ -18,12 +18,12 @@ export const renderIframeHtml = (html: string, css: string, js: string) => {
 
 	const cssPurge = (css: string) => css.replace(/<\/style>/gm, '')
 
-	return codePurge(`
+	return `
         <style>${cssPurge(css)}</style>
         <script>${iframeScript}</script>
-        ${html}
+        ${htmlPurge(html)}
         <script>
             ${js}
         </script>
-    `)
+    `
 }
