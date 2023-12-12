@@ -7,11 +7,11 @@ export const renderIframeHtml = (html: string, css: string, js: string) => {
 	 */
 	const codePurge = (html: string) => {
 		return html
-			.replace(/(<\w*\s*?)[^>]</gm, (tag) => {
+			.replace(/(<[^>]*?)[^>]</gm, (tag) => {
 				const tagName = tag.match(/\w*/g)?.[1]
 				return tag.replace(/<$/, `></${tagName}><`)
 			})
-			.replace(/(<\/\w*\s*?)[^>]</gm, (tag) => {
+			.replace(/(<\/[^>]*?)[^>]</gm, (tag) => {
 				return tag.replace(/<$/, `><`)
 			})
 	}
@@ -22,11 +22,6 @@ export const renderIframeHtml = (html: string, css: string, js: string) => {
         <style>${cssPurge(css)}</style>
         <script>${iframeScript}</script>
         ${html}
-        <script>
-            addEventListener('error', (event) => {
-                console.error("⊗",event.error.toString());
-            });                
-        </script>
         <script>
             ${js}
         </script>

@@ -161,4 +161,8 @@ for (const key in console) {
 			window.parent.haku(window, key, hakuConsole[key](...data));
 		}
 	}
-}`
+}
+addEventListener('error', (event) => {
+    console.error("⊗",event.error.toString());
+}); 
+`
